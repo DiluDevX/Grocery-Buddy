@@ -15,7 +15,7 @@ export const SignOutButton = () => {
       // for more info on error handling
       console.error(JSON.stringify(err, null, 2));
     }
-  };  
+  };
   return (
     <TouchableOpacity onPress={handleSignOut}>
       <Text>Sign out</Text>

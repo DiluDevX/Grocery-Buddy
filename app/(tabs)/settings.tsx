@@ -16,7 +16,7 @@ export default function SettingsScreen() {
   const handleEditProfile = () => {
     Alert.alert(
       "Edit Profile",
-      "Profile editing functionality would open here."
+      "Profile editing functionality would open here.",
     );
   };
 
@@ -27,7 +27,7 @@ export default function SettingsScreen() {
   const handleNotificationSettings = () => {
     Alert.alert(
       "Notification Settings",
-      "Notification preferences would open here."
+      "Notification preferences would open here.",
     );
   };
 
@@ -171,7 +171,7 @@ export default function SettingsScreen() {
               onPress={() =>
                 Alert.alert(
                   "About",
-                  "Grocery Buddy v1.0.0\nBuilt with ❤️ for better shopping"
+                  "Grocery Buddy v1.0.0\nBuilt with ❤️ for better shopping",
                 )
               }
             />

@@ -40,7 +40,7 @@ export function GroceryItemComponent({
       [
         { text: "Cancel", style: "cancel" },
         { text: "Delete", style: "destructive", onPress: onDelete },
-      ]
+      ],
     );
   };
 

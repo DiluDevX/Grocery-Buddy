@@ -42,7 +42,7 @@ export default function GroceryListScreen() {
       ],
       "plain-text",
       "",
-      "default"
+      "default",
     );
   };
 
@@ -60,7 +60,7 @@ export default function GroceryListScreen() {
         [
           { text: "Cancel", style: "cancel" },
           { text: "Archive", onPress: () => archiveList(activeList.id) },
-        ]
+        ],
       );
     }
   };

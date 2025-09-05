@@ -35,7 +35,7 @@ export function AddItemModal({
 }: AddItemModalProps) {
   const [name, setName] = useState("");
   const [selectedCategory, setSelectedCategory] = useState(
-    DEFAULT_CATEGORIES[0]
+    DEFAULT_CATEGORIES[0],
   );
   const [quantity, setQuantity] = useState("1");
   const [unit, setUnit] = useState("pcs");

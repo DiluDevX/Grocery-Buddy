@@ -2,7 +2,7 @@ import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { IconSymbol } from "@/components/ui/IconSymbol";
 import { useThemeColor } from "@/hooks/useThemeColor";
-import { Slot, useLocalSearchParams, useSegments } from "expo-router";
+import { Slot, useSegments } from "expo-router";
 import React from "react";
 import { KeyboardAvoidingView, Platform, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -11,7 +11,6 @@ export default function AuthRoutesLayout() {
   const backgroundColor = useThemeColor({}, "background");
   const primaryColor = "#4CAF50";
   const segments = useSegments();
-  const params = useLocalSearchParams();
 
   // Determine content based on current route
   const currentRoute = segments[segments.length - 1];

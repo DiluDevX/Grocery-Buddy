@@ -6,16 +6,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Link, useRouter } from "expo-router";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
-import {
-  Alert,
-  Dimensions,
-  StyleSheet,
-  TextInput,
-  TouchableOpacity,
-} from "react-native";
+import { Alert, StyleSheet, TextInput, TouchableOpacity } from "react-native";
 import { z } from "zod";
-
-const { width } = Dimensions.get("window");
 
 // Validation schema
 const signInSchema = z.object({
@@ -34,7 +26,6 @@ type SignInFormData = z.infer<typeof signInSchema>;
 export default function SignInScreen() {
   const { signIn, setActive, isLoaded } = useSignIn();
   const router = useRouter();
-  const backgroundColor = useThemeColor({}, "background");
   const textColor = useThemeColor({}, "text");
   const primaryColor = "#4CAF50";
 
@@ -76,7 +67,7 @@ export default function SignInScreen() {
       Alert.alert(
         "Error",
         err.errors?.[0]?.message ||
-          "Failed to sign in. Please check your credentials."
+          "Failed to sign in. Please check your credentials.",
       );
     } finally {
       setLoading(false);

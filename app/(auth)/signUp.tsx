@@ -21,7 +21,7 @@ const signUpSchema = z.object({
     .min(8, "Password must be at least 8 characters")
     .regex(
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/,
-      "Password must contain at least one uppercase letter, one lowercase letter, and one number"
+      "Password must contain at least one uppercase letter, one lowercase letter, and one number",
     ),
 });
 
@@ -39,13 +39,11 @@ type VerificationFormData = z.infer<typeof verificationSchema>;
 export default function SignUpScreen() {
   const { isLoaded, signUp, setActive } = useSignUp();
   const router = useRouter();
-  const backgroundColor = useThemeColor({}, "background");
   const textColor = useThemeColor({}, "text");
   const primaryColor = "#4CAF50";
 
   const [pendingVerification, setPendingVerification] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
-  const [emailAddress, setEmailAddress] = React.useState("");
 
   const {
     control: signUpControl,
@@ -76,7 +74,6 @@ export default function SignUpScreen() {
     if (!isLoaded) return;
 
     setLoading(true);
-    setEmailAddress(data.email); // Store for verification screen
 
     try {
       await signUp.create({
@@ -91,7 +88,7 @@ export default function SignUpScreen() {
       Alert.alert(
         "Error",
         err.errors?.[0]?.message ||
-          "Failed to create account. Please try again."
+          "Failed to create account. Please try again.",
       );
     } finally {
       setLoading(false);
@@ -119,7 +116,7 @@ export default function SignUpScreen() {
       console.error(JSON.stringify(err, null, 2));
       Alert.alert(
         "Error",
-        err.errors?.[0]?.message || "Invalid verification code."
+        err.errors?.[0]?.message || "Invalid verification code.",
       );
     } finally {
       setLoading(false);

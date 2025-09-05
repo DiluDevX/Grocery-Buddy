@@ -9,12 +9,12 @@ interface GroceryContextType {
   deleteList: (listId: string) => Promise<void>;
   addItem: (
     listId: string,
-    item: Omit<GroceryItem, "id" | "addedDate">
+    item: Omit<GroceryItem, "id" | "addedDate">,
   ) => Promise<void>;
   updateItem: (
     listId: string,
     itemId: string,
-    updates: Partial<GroceryItem>
+    updates: Partial<GroceryItem>,
   ) => Promise<void>;
   deleteItem: (listId: string, itemId: string) => Promise<void>;
   toggleItemCompleted: (listId: string, itemId: string) => Promise<void>;
@@ -56,7 +56,7 @@ export function GroceryProvider({ children }: { children: React.ReactNode }) {
 
   const addItem = async (
     listId: string,
-    itemData: Omit<GroceryItem, "id" | "addedDate">
+    itemData: Omit<GroceryItem, "id" | "addedDate">,
   ) => {
     const newItem: GroceryItem = {
       ...itemData,
@@ -65,7 +65,7 @@ export function GroceryProvider({ children }: { children: React.ReactNode }) {
     };
 
     const newLists = lists.map((list) =>
-      list.id === listId ? { ...list, items: [...list.items, newItem] } : list
+      list.id === listId ? { ...list, items: [...list.items, newItem] } : list,
     );
 
     setLists(newLists);
@@ -80,17 +80,17 @@ export function GroceryProvider({ children }: { children: React.ReactNode }) {
   const updateItem = async (
     listId: string,
     itemId: string,
-    updates: Partial<GroceryItem>
+    updates: Partial<GroceryItem>,
   ) => {
     const newLists = lists.map((list) =>
       list.id === listId
         ? {
             ...list,
             items: list.items.map((item) =>
-              item.id === itemId ? { ...item, ...updates } : item
+              item.id === itemId ? { ...item, ...updates } : item,
             ),
           }
-        : list
+        : list,
     );
 
     setLists(newLists);
@@ -105,7 +105,7 @@ export function GroceryProvider({ children }: { children: React.ReactNode }) {
     const newLists = lists.map((list) =>
       list.id === listId
         ? { ...list, items: list.items.filter((item) => item.id !== itemId) }
-        : list
+        : list,
     );
 
     setLists(newLists);
@@ -124,10 +124,10 @@ export function GroceryProvider({ children }: { children: React.ReactNode }) {
             items: list.items.map((item) =>
               item.id === itemId
                 ? { ...item, completed: !item.completed }
-                : item
+                : item,
             ),
           }
-        : list
+        : list,
     );
 
     setLists(newLists);
@@ -142,7 +142,7 @@ export function GroceryProvider({ children }: { children: React.ReactNode }) {
     const newLists = lists.map((list) =>
       list.id === listId
         ? { ...list, isArchived: true, completedDate: new Date() }
-        : list
+        : list,
     );
 
     setLists(newLists);

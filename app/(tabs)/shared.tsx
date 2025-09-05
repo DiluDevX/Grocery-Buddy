@@ -53,28 +53,28 @@ export default function SharedListsScreen() {
         { text: "Cancel", style: "cancel" },
         { text: "Share via Link", onPress: () => generateShareLink() },
         { text: "Invite by Email", onPress: () => inviteByEmail() },
-      ]
+      ],
     );
   };
 
   const generateShareLink = () => {
     Alert.alert(
       "Share Link Generated",
-      "Link copied to clipboard!\nAnyone with this link can view and edit your list."
+      "Link copied to clipboard!\nAnyone with this link can view and edit your list.",
     );
   };
 
   const inviteByEmail = () => {
     Alert.alert(
       "Email Invite",
-      "Enter email addresses to invite people to collaborate on your list."
+      "Enter email addresses to invite people to collaborate on your list.",
     );
   };
 
   const formatTimeAgo = (date: Date) => {
     const now = new Date();
     const diffInMinutes = Math.floor(
-      (now.getTime() - date.getTime()) / (1000 * 60)
+      (now.getTime() - date.getTime()) / (1000 * 60),
     );
 
     if (diffInMinutes < 60) {
